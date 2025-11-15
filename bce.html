@@ -1,43 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Body Count Eraser</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: url('sky.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin: 20px 0;
+    }
+
+    #counter {
+        font-size: 3em;
+        font-weight: bold;
+        margin: 20px 0;
+    }
+
+    button {
+        padding: 15px 30px;
+        font-size: 1.2em;
+        border-radius: 10px;
+        margin: 10px;
+        width: 60%; /* makes button wider on small screens */
+        max-width: 300px; /* limits button size on big screens */
+        word-wrap: break-word; /* allows <br> to work nicely */
+    }
+
+    /* Optional: smaller padding for very small phones */
+    @media (max-width: 400px) {
+        button {
+            padding: 12px 20px;
+            font-size: 1em;
+            width: 80%;
+        }
+
+        #counter {
+            font-size: 2.5em;
+        }
+
+        h1 {
+            font-size: 1.5em;
+        }
+    }
+</style>
 </head>
 
-<body style="background-image: url('sky.png'); background-size: cover; background-repeat: no-repeat;">
+<body>
+<h1>Body Count Eraser</h1>
 
-<h1><center> Body Count Eraser </center></h1>
+<p id="counter">0</p>
 
-<center> 
-    <p id="counter" style="font-size: 30px; font-weight: bold;">0</p>
-</center>
-
-<center>
-    <button style="padding: 15px 40px; font-size: 20px; border-radius: 10px;" onclick="addOne()">Add<br>Body</button>
-
-    <button style="padding: 15px 40px; font-size: 20px; border-radius: 10px;" onclick="resetCounter()">Alhamdulillah For<br>Everything</button>
-</center>
+<button onclick="addOne()">Add<br>Body</button>
+<button onclick="resetCounter()">Alhamdulillah For<br>Everything</button>
 
 <script>
 let count = 0;
 
+function updateCounter() {
+    document.getElementById("counter").textContent = count;
+}
+
 function addOne() {
     count++;
-    document.getElementById("counter").textContent = count;
+    updateCounter();
 }
 
 function resetCounter() {
     const counterBox = document.getElementById("counter");
-
-    // Show a word for 3 seconds before resetting
     counterBox.textContent = "Purified ✨"; 
 
     setTimeout(() => {
         count = 0;
-        counterBox.textContent = count;
-    }, 1500); // 3 seconds
+        updateCounter();
+    }, 3000);
 }
 </script>
-
 </body>
 </html>
