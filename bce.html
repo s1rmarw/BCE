@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h1> <center> Body Count Eraser </center> </h1>
+<body style="background-image: url('sky.png'); background-size: cover; background-repeat: no-repeat;">
+
+<center> <p id="counter" style="font-size: 30px; font-weight: bold;">0</p> </center>
+<center> <button style="padding: 15px 40px; font-size: 20px; border-radius: 10px;" onclick="addOne()">  Add<br>Body  </button>
+<button style="padding: 15px 40px; font-size: 20px; border-radius: 10px;" onclick="resetCounter()"> Alhamdulillah For<br>Everything </button> </center>
+
+
+<script>
+let count = 0;
+
+function addOne() {
+    count++;
+    document.getElementById("counter").textContent = count;
+}
+
+function resetCounter() {
+    count = 0;
+    document.getElementById("counter").textContent = count;
+}
+</script>
+</body>
+</head>
+</html>
