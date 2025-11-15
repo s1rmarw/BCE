@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<h1> <center> Body Count Eraser </center> </h1>
+<meta charset="UTF-8">
+</head>
+
 <body style="background-image: url('sky.png'); background-size: cover; background-repeat: no-repeat;">
 
-<center> <p id="counter" style="font-size: 30px; font-weight: bold;">0</p> </center>
-<center> <button style="padding: 15px 40px; font-size: 20px; border-radius: 10px;" onclick="addOne()">  Add<br>Body  </button>
-<button style="padding: 15px 40px; font-size: 20px; border-radius: 10px;" onclick="resetCounter()"> Alhamdulillah For<br>Everything </button> </center>
+<h1><center> Body Count Eraser </center></h1>
 
+<center> 
+    <p id="counter" style="font-size: 30px; font-weight: bold;">0</p>
+</center>
+
+<center>
+    <button style="padding: 15px 40px; font-size: 20px; border-radius: 10px;" onclick="addOne()">Add<br>Body</button>
+
+    <button style="padding: 15px 40px; font-size: 20px; border-radius: 10px;" onclick="resetCounter()">Alhamdulillah For<br>Everything</button>
+</center>
 
 <script>
 let count = 0;
@@ -18,10 +27,17 @@ function addOne() {
 }
 
 function resetCounter() {
-    count = 0;
-    document.getElementById("counter").textContent = count;
+    const counterBox = document.getElementById("counter");
+
+    // Show a word for 3 seconds before resetting
+    counterBox.textContent = "Purified ✨"; 
+
+    setTimeout(() => {
+        count = 0;
+        counterBox.textContent = count;
+    }, 1500); // 3 seconds
 }
 </script>
+
 </body>
-</head>
 </html>
